@@ -1,3 +1,5 @@
+// vite.config.js
+
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
@@ -6,6 +8,11 @@ export default defineConfig(({ command }) => ({
   plugins: [react()],
   base: '/',
   server: {
+    // 👇 ADD THIS SECTION FOR CSP DURING DEVELOPMENT
+    headers: {
+      'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-eval';",
+    },
+    // 👆 END OF CSP ADDITION
     proxy: command === 'serve' ? {
       '/api': {
         target: process.env.VITE_API_URL || 'http://localhost:8000',
@@ -50,4 +57,4 @@ export default defineConfig(({ command }) => ({
     }
   },
   publicDir: 'public'
-}))
+}));
