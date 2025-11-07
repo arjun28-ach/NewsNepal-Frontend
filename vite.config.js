@@ -16,9 +16,6 @@ export default defineConfig(({ command }) => ({
     port: 5173,
     strictPort: true,
     host: true,
-    headers: {
-      'Content-Security-Policy': "default-src 'self' https://newsbackend-4so0.onrender.com; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://newsbackend-4so0.onrender.com;"
-    }
   },
   build: {
     outDir: 'dist',
