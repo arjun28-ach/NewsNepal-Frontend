@@ -6,16 +6,6 @@ export default defineConfig(({ command }) => ({
   plugins: [react()],
   base: '/',
   server: {
-    headers: {
-      'Content-Security-Policy': [
-        "default-src 'self'",
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
-        "style-src 'self' 'unsafe-inline'",
-        "img-src 'self' data: https:",
-        "font-src 'self' data:",
-        "connect-src 'self' http://localhost:8000 ws://localhost:5173 https://newsbackend-4so0.onrender.com"
-      ].join('; ')
-    },
     proxy: command === 'serve' ? {
       '/api': {
         target: process.env.VITE_API_URL || 'http://localhost:8000',
