@@ -20,11 +20,11 @@ const queryClient = new QueryClient({
   },
 });
 
-// Lazy load components
-const NewsFeed = lazy(() => import('./components/NewsFeed'));
-const Bookmarks = lazy(() => import('./components/Bookmarks'));
-const Profile = lazy(() => import('./components/Profile'));
-const AboutUs = lazy(() => import('./components/AboutUs'));
+// Lazy load components (these modules export named components)
+const NewsFeed = lazy(() => import('./components/NewsFeed').then(mod => ({ default: mod.NewsFeed })));
+const Bookmarks = lazy(() => import('./components/Bookmarks').then(mod => ({ default: mod.Bookmarks })));
+const Profile = lazy(() => import('./components/Profile').then(mod => ({ default: mod.Profile })));
+const AboutUs = lazy(() => import('./components/AboutUs').then(mod => ({ default: mod.AboutUs })));
 
 function App() {
   const [language, setLanguage] = useState('en');
