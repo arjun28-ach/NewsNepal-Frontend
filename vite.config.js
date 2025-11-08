@@ -13,7 +13,7 @@ export default defineConfig(({ command }) => ({
         "style-src 'self' 'unsafe-inline'",
         "img-src 'self' data: https:",
         "font-src 'self' data:",
-        "connect-src 'self' http://localhost:8000 ws://localhost:5173"
+        "connect-src 'self' http://localhost:8000 ws://localhost:5173 https://newsbackend-4so0.onrender.com"
       ].join('; ')
     },
     proxy: command === 'serve' ? {
