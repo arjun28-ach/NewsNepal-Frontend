@@ -98,7 +98,7 @@ The backend will start at:
 
 cd NewsNepal-Frontend
 npm install
-npm start
+npm run dev
 The frontend will start at:
 
 🔗 http://localhost:3000
